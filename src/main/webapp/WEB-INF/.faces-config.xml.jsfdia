@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="search::#search.xhtml" NAME="output"
+    PATH="/search.xhtml" TARGET="rules:#search.xhtml" TITLE="search" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="signup::#public#signup.xhtml" NAME="output1"
+    PATH="/public/signup.xhtml" TARGET="rules:#public#signup.xhtml"
+    TITLE="signup" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="admin::#admin.xhtml" NAME="output2"
+    PATH="/admin.xhtml" TARGET="rules:#admin.xhtml" TITLE="admin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#public#signup.xhtml"
+  PATH="/public/signup.xhtml" SHAPE="224,104,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#search.xhtml" PATH="/search.xhtml"
+  SHAPE="232,40,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#search.xhtml:0" NAME="item"
+   PATH="/search.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="select::#partDetails.xhtml" NAME="output"
+    PATH="/partDetails.xhtml" TARGET="rules:#partDetails.xhtml"
+    TITLE="select" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#partDetails.xhtml" PATH="/partDetails.xhtml"
+  SHAPE="464,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#admin.xhtml" PATH="/admin.xhtml"
+  SHAPE="272,209,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

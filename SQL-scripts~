@@ -1,0 +1,102 @@
+CREATE TABLE IF NOT EXISTS user
+(
+email varchar(255) NOT NULL,
+password varchar(255) NOT NULL,
+LastName varchar(255) NOT NULL,
+FirstName varchar(255) NOT NULL,
+Address varchar(255),
+City varchar(255),
+Institution varchar(255),
+Title varchar(255),
+OrgType varchar(255),
+GPO varchar(255),
+Department varchar(255),
+Phone INT,
+Newsletter BOOL,
+priceTier INT,
+PRIMARY KEY (email)
+);
+
+insert into user (email ,password ,LastName ,FirstName,Address,City,Institution,Title ,OrgType ,GPO,Department ,Phone,Newsletter) values ('abed@novo.com','123','lastn','firstn','address12','city','inst','title','orgtype','gpo12','dep',888888888,FALSE);
+insert into user (email ,password ,LastName ,FirstName,Address,City,Institution,Title ,OrgType ,GPO,Department ,Phone,Newsletter) values ('amit@novo.com','123','lastn','firstn','address12','city','inst','title','orgtype','gpo12','dep',888888888,FALSE);
+insert into user (email ,password ,LastName ,FirstName,Address,City,Institution,Title ,OrgType ,GPO,Department ,Phone,Newsletter) values ('1','1','lastn','firstn','address12','city','inst','title','orgtype','gpo12','dep',888888888,FALSE);
+insert into user (email ,password ,LastName ,FirstName,Address,City,Institution,Title ,OrgType ,GPO,Department ,Phone,Newsletter) values ('iman.sadooghi@gmail.com','123','lastn','firstn','address12','city','inst','title','orgtype','gpo12','dep',888888888,FALSE);
+
+
+CREATE TABLE IF NOT EXISTS localPart
+(
+pCode varchar(30) NOT NULL,
+stPCode varchar(30) NOT NULL,
+name varchar(30) NOT NULL,
+description TEXT NOT NULL,
+price DOUBLE NOT NULL,
+manufacturer varchar(30),
+origin varchar(30),
+groupId varchar(30),
+isConfigurable BOOL,
+PRIMARY KEY (pCode)
+);
+
+insert into localPart (pCode,stPCode,name ,description,price,groupId,isConfigurable) values ('3-421','3421','asd' ,'util was signed',123.1,'125',TRUE);
+insert into localPart (pCode,stPCode,name ,description,price,groupId,isConfigurable) values ('3-trs','3trs','lik' ,'loke brand made in germany',123.1,'125',TRUE);
+insert into localPart (pCode,stPCode,name ,description,price,groupId,isConfigurable) values ('3-cvr4','3cvr4','knife' ,'iman',123.1,'125',TRUE);
+insert into localPart (pCode,stPCode,name ,description,price,groupId,isConfigurable) values ('3-lk','3lk','box' ,'like others',123.1,'125',TRUE);
+insert into localPart (pCode,stPCode,name ,description,price,groupId,isConfigurable) values ('3-vv','3vv','nail' ,'siemens brand',123.1,'125',TRUE);
+
+update localPart SET (stPCode,name ,description,price,groupId,isConfigurable) values (,'3vv','nail' ,'siemens brand',123.1,'125',TRUE) where pcode='3-vv';
+ 
+insert into localPart (pCode,stPCode,name ,description,retailPrice,groupId,isConfigurable,longDesc, t1Price,
+ t2Price, t3Price, t4Price, t5Price, t6Price, t7Price, t8Price, t9Price, t10Price, leadTime, manufacturer, imagePath, finish, uom, grade, partUsage, specialty, sterile, origin) values ('34-3wrasdb','34qwe1','siemens' ,' johnny',123.1,'125', TRUE, ' loooongdesc ', 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 'lead time 3', 'manu', '9.jpg', 'finish',  'oum', 'grade', 'usage', 'specialty', 'sterile', 'origin');
+
+insert into localPart (pCode, stPCode, partName, description, longDesc, retailPrice, t1Price, 	 t2Price, t3Price, t4Price, t5Price, t6Price, t7Price, t8Price, t9Price, t10Price, leadTime, specialty, finish, origin, grade, uom, manufacturer, sterile, usage, groupID, isConfigurable, imagePath) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '9.jpg')
+
+
+CREATE TABLE IF NOT EXISTS comPart
+(
+pCode varchar(30) NOT NULL,
+stPCode varchar(30) NOT NULL,
+novoPCode varchar(30) NOT NULL,
+description TEXT,
+price DOUBLE,
+manufacturer varchar(30),
+PRIMARY KEY (pCode),
+FOREIGN KEY (novoPCode) REFERENCES localPart(pCode)
+);
+
+insert into comPart (pCode,stPCode,novoPCode,price) values ('tst1','tst1','1-aa',44.4);
+insert into comPart (pCode,stPCode,novoPCode,price) values ('xy-53','xy11','1-bb',44.4);
+insert into comPart (pCode,stPCode,novoPCode,price) values ('xz-55','xz12','1-cc',44.4);
+insert into comPart (pCode,stPCode,novoPCode,price) values ('xt-7','xt1','2-dz',44.4);
+insert into comPart (pCode,stPCode,novoPCode,price) values ('x-9','x1','2-r',44.4);
+insert into comPart (pCode,stPCode,novoPCode,price) values ('h-63','h43','1-aa',44.4);
+
+
+security key:      qU0fE3sD9bR0oB3zG8pW0h
+
+local part alter:
+ALTER TABLE localPart ADD (longDesc, t1Price, t2Price, t3Price, t4Price, t5Price, t6Price, t7Price, t8Price, t9Price, t10Price, leadTime)
+(TEXT, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, DOUBLE, VARCHAR(60));
+ALTER TABLE localPart ADD longDesc TEXT;
+ALTER TABLE localPart ADD t1Price DOUBLE;
+ALTER TABLE localPart ADD t2Price DOUBLE;
+ALTER TABLE localPart ADD t3Price DOUBLE;
+ALTER TABLE localPart ADD t4Price DOUBLE;
+ALTER TABLE localPart ADD t5Price DOUBLE;
+ALTER TABLE localPart ADD t6Price DOUBLE;
+ALTER TABLE localPart ADD t7Price DOUBLE;
+ALTER TABLE localPart ADD t8Price DOUBLE;
+ALTER TABLE localPart ADD t9Price DOUBLE;
+ALTER TABLE localPart ADD t10Price DOUBLE;
+ALTER TABLE localPart ADD leadTime VARCHAR(50);
+ALTER TABLE localPart ADD specialty VARCHAR(50);
+ALTER TABLE localPart ADD finish VARCHAR(40);
+ALTER TABLE localPart ADD grade VARCHAR(10);
+ALTER TABLE localPart ADD uom VARCHAR(10);
+ALTER TABLE localPart ADD sterile VARCHAR(10);
+ALTER TABLE localPart ADD utsage VARCHAR(10);
+
+
+
+
+			
+

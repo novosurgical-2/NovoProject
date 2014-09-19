@@ -1,0 +1,8 @@
+<span style="font-family: Trebuchet MS, sans-serif;">
+<requestHandler name="/dataimport" class="org.apache.solr.handler.dataimport.DataImportHandler">     
+<lst name="defaults">    
+	<str name="config">data-config.xml</str>  
+</lst>   
+  asdasd
+</requestHandler>  
+</span>  

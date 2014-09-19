@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <h2> please fill in the form</h2>
+         <h:form id="form">
+            <p:panel id="panel" header="Name" style="margin-bottom:10px;">
+                <p:messages id="messages" />
+                <h:panelGrid columns="3">
+                    
+                    
+                    <h:outputLabel for="email" value="email: " />
+                    <p:inputText id="email"
+                        value="#{signUpBean.user.email}" required="true" label="email">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="email" />
+                    
+                    <h:outputLabel for="lastName" value="lastName: " />
+                    <p:inputText id="lastName"
+                        value="#{signUpBean.user.lastName}" required="true" label="lastName">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="lastName" />
+                    
+                    <h:outputLabel for="firstName" value="firstName: " />
+                    <p:inputText id="firstName"
+                        value="#{signUpBean.user.firstName}" required="true" label="firstName">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="firstName" />
+                    
+                    <h:outputLabel for="address" value="address: " />
+                    <p:inputText id="address"
+                        value="#{signUpBean.user.address}" required="true" label="address">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="address" />
+                    
+                    <h:outputLabel for="institution" value="institution: " />
+                    <p:inputText id="institution"
+                        value="#{signUpBean.user.institution}" required="true" label="institution">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="institution" />
+                    
+                    <h:outputLabel for="department" value="department: " />
+                    <p:inputText id="department"
+                        value="#{signUpBean.user.department}" required="true" label="department">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="department" />
+                    
+                    <h:outputLabel for="gpo" value="gpo: " />
+                    <p:inputText id="gpo"
+                        value="#{signUpBean.user.gpo}" required="true" label="gpo">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="gpo" />
+                    
+                    <h:outputLabel for="title" value="title: " />
+                    <p:inputText id="title"
+                        value="#{signUpBean.user.title}" required="true" label="title">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="title" />
+
+                    <h:outputLabel for="orgType" value="orgType: " />
+                    <p:inputText id="orgType"
+                        value="#{signUpBean.user.orgType}" required="true" label="orgType">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="orgType" />
+                    
+                    <h:outputLabel for="city" value="city: " />
+                    <p:inputText id="city"
+                        value="#{signUpBean.user.city}" required="true" label="city">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="city" />
+                                    
+                </h:panelGrid>
+            </p:panel>
+          
+            <p:commandButton value="Submit" update="panel,display" id="ajax"
+ actionListener="#{signUpBean.saveName}" styleClass="ui-priority-primary"/>
+            <p:panel id="display" header="Information" style="margin-top:10px;">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Name: " />
+                    <h:outputText value="#{signUpBean.user.firstName}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+</h:body>
+</html>

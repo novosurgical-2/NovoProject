@@ -1,0 +1,39 @@
+<span style="font-family: Trebuchet MS, sans-serif;">
+	<dataConfig>
+		<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/novo" user="root" password="iman"/>
+		<document>
+		    <entity name="novoPart" query="select * from localPart">
+			<field column="pCode" name="id"/>
+			<field column="stPCode" name="stPCode"/>
+			<field column="name" name="partName"/>
+			<field column="imagePath" name="imagePath"/>
+			<field column="description" name="description"/>
+			<field column="groupId" name="groupId"/>
+			<field column="isConfigurable" name="isConfigurable"/>
+			<field column="longDesc" name="longDesc"/>
+			<field column="leadTime" name="leadTime"/>
+			<field column="specialty" name="specialty"/>
+			<field column="finish" name="finish"/>
+			<field column="sterile" name="sterile"/>
+			<field column="grade" name="grade"/>
+			<field column="uom" name="uom"/>
+			<field column="partUsage" name="usage"/>
+			<field column="origin" name="origin"/>
+			<field column="manufacturer" name="manufacturer"/>
+			<field column="retailPrice" name="retailPrice"/>
+			<field column="t1Price" name="t1Price"/>
+			<field column="t2Price" name="t2Price"/>
+			<field column="t3Price" name="t3Price"/>
+			<field column="t4Price" name="t4Price"/>
+			<field column="t5Price" name="t5Price"/>
+			<field column="t6Price" name="t6Price"/>
+			<field column="t7Price" name="t7Price"/>
+			<field column="t8Price" name="t8Price"/>
+			<field column="t9Price" name="t9Price"/>
+			<field column="t10Price" name="t10Price"/>
+			<field column="isParent" name="isParent"/>
+		    </entity>
+		</document>
+	</dataConfig>
+</span>
+
