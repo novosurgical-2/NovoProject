@@ -187,20 +187,20 @@ public class PartDAO {
 					thisPart.setDescription(String.valueOf(doc.getFieldValue("description")));
 					thisPart.setGroupId(String.valueOf(doc.getFieldValue("groupId")));
 					thisPart.setImagePath(String.valueOf(doc.getFieldValue("imagePath")));
-					thisPart.setRetailPrice((double) doc.getFieldValue("retailPrice"));
-					thisPart.setConfigurable((boolean) doc.getFieldValue("isConfigurable"));
-					thisPart.setParent((boolean) doc.getFieldValue("isParent"));
-					thisPart.setT1Price((double) doc.getFieldValue("t1Price"));
+					thisPart.setRetailPrice(Double.valueOf(String.valueOf(doc.getFieldValue("retailPrice"))));
+					thisPart.setConfigurable(Boolean.valueOf(String.valueOf(doc.getFieldValue("isConfigurable"))));
+					thisPart.setParent(Boolean.valueOf(String.valueOf(doc.getFieldValue("isParent"))));
+					thisPart.setT1Price(Double.valueOf(String.valueOf(doc.getFieldValue("t1Price"))));
 					// these are null sometimes and cause error
-					thisPart.setT2Price((double) doc.getFieldValue("t2Price"));
-					thisPart.setT3Price((double) doc.getFieldValue("t3Price"));
-					thisPart.setT4Price((double) doc.getFieldValue("t4Price"));
-					thisPart.setT5Price((double) doc.getFieldValue("t5Price"));
-					thisPart.setT6Price((double) doc.getFieldValue("t6Price"));
-					thisPart.setT7Price((double) doc.getFieldValue("t7Price"));
-					thisPart.setT8Price((double) doc.getFieldValue("t8Price"));
-					thisPart.setT9Price((double) doc.getFieldValue("t9Price"));
-					thisPart.setT10Price((double) doc.getFieldValue("t10Price"));
+					thisPart.setT2Price(Double.valueOf(String.valueOf(doc.getFieldValue("t2Price"))));
+					thisPart.setT3Price(Double.valueOf(String.valueOf(doc.getFieldValue("t3Price"))));
+					thisPart.setT4Price(Double.valueOf(String.valueOf(doc.getFieldValue("t4Price"))));
+					thisPart.setT5Price(Double.valueOf(String.valueOf( doc.getFieldValue("t5Price"))));
+					thisPart.setT6Price(Double.valueOf(String.valueOf( doc.getFieldValue("t6Price"))));
+					thisPart.setT7Price(Double.valueOf(String.valueOf(doc.getFieldValue("t7Price"))));
+					thisPart.setT8Price(Double.valueOf(String.valueOf( doc.getFieldValue("t8Price"))));
+					thisPart.setT9Price(Double.valueOf(String.valueOf(doc.getFieldValue("t9Price"))));
+					thisPart.setT10Price(Double.valueOf(String.valueOf(doc.getFieldValue("t10Price"))));
 					thisPart.setLongDesc(String.valueOf(doc.getFieldValue("longDesc")));
 					thisPart.setFinish(String.valueOf(doc.getFieldValue("finish")));
 					thisPart.setGrade(String.valueOf(doc.getFieldValue("grade")));
@@ -223,7 +223,7 @@ public class PartDAO {
      
      public static ArrayList<Part> selectPart(String pCode, String groupId) { // some fields maybe missing
     	 // if exact item, add to index 0 , else just add anywhere
-    	 ArrayList<Part> parts = new ArrayList<>();
+    	 ArrayList<Part> parts = new ArrayList();
     	 Connection con = null;
          PreparedStatement ps = null;
          Part thisPart;

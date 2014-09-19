@@ -45,7 +45,7 @@ public class AutoCompleteView implements Serializable{
 	        this.selected = selected;
 	    }
 	    public ArrayList<String> complete(String query){
-	    	ArrayList<String> suggestions = new ArrayList<>();
+	    	ArrayList<String> suggestions = new ArrayList();
 	    	SolrServer solr = new HttpSolrServer("http://localhost:8983/solr");
 	    	ModifiableSolrParams params = new ModifiableSolrParams();
 	    	params.set("qt", "/suggest");
