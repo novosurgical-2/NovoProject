@@ -3,8 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+// this class is utility used by other classes to manipulate or access mysql tables
 public class Database {
  
+	// this is a typical method to get a connection to the mySQL server. returns a connection object
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -17,6 +19,7 @@ public class Database {
         }
     }
  
+    // utility method to close connection
     public static void close(Connection con) {
         try {
             con.close();

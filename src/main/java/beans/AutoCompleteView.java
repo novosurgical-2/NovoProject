@@ -22,7 +22,7 @@ import org.apache.solr.common.params.ModifiableSolrParams;
 import org.primefaces.event.SelectEvent;
 
 
- 
+//this class is solely for the search box. This class read data from solr to do autocomplete.
 @ManagedBean(name = "AutoComplete") 
 @ViewScoped
 public class AutoCompleteView implements Serializable{
@@ -44,6 +44,9 @@ public class AutoCompleteView implements Serializable{
 	    public void setSelected(String selected) {
 	        this.selected = selected;
 	    }
+	    // the complete method guesses the user input based on what she/he has typed
+	    // the params in here are set based on Solr configs. 
+	    // the data-configs.xml and the solrconfig.xml in /collection1/conf/ need to be changed if you want to change autocomplete features
 	    public ArrayList<String> complete(String query){
 	    	ArrayList<String> suggestions = new ArrayList();
 	    	SolrServer solr = new HttpSolrServer("http://localhost:8983/solr");
@@ -61,6 +64,7 @@ public class AutoCompleteView implements Serializable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			// compound word to handle words with space in between
 			StringBuffer compoundWord= new StringBuffer();
 			List<String> thisSug = new ArrayList<String>();
 	    	SpellCheckResponse spellCheckResponse = response.getSpellCheckResponse();
@@ -68,6 +72,7 @@ public class AutoCompleteView implements Serializable{
 	    	if (!spellCheckResponse.isCorrectlySpelled()) {
 	    		
 	    		Map<String, Suggestion> map = response.getSpellCheckResponse().getSuggestionMap();
+	    		// loops in the input and takes words. looks for suggestions and appends to the result
 	    		for (int j = 1; j < 4; j++) {			
 		    		for (int i = 0; i < tempQueryArray.length; i++) {
 		    			suggestion = (map.get(tempQueryArray[i]));
@@ -81,6 +86,7 @@ public class AutoCompleteView implements Serializable{
 							}
 						}
 					}
+		    		// add all of the suggestions to the results to pass to the page
 		    		suggestions.add(tempQ.toString());
 		    		tempQ = new StringBuffer();
 	    		}

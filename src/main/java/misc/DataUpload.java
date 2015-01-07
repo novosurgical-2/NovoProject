@@ -21,13 +21,13 @@ import javax.faces.context.FacesContext;
 
 import model.Part;
 import dao.Database;
-
+// the actual used method of this class is the second implementation of uploadFromFile method
 @ManagedBean
 public class DataUpload {
 	public static void main(String[] args){
 		uploadFromFile("dataSource/LocalPart-new", "localPart");
 	}
-	
+	// this method adds a line of string to the LocalPart table. used by other local methods
 	public static void addToLocalPart(String line){
 		String[] record = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 		Connection con = null;
@@ -84,6 +84,7 @@ public class DataUpload {
 	    }
 		
 	}
+	// this method uploads the data from csv file using addToLocalPart and addToUser. this one is used
 	public static void uploadFromFile(String path,String type){
 		List<String> lines= null; 
 		try {
@@ -112,6 +113,7 @@ public class DataUpload {
 		}
 		
 	}
+	//this method converts inputstream to a file
 	public static File convertToFile(InputStream is){
 		 try
 		  {
@@ -130,6 +132,7 @@ public class DataUpload {
 			  return null;
 		  }
 	}
+	//this method is an alternative way of uploading from file
 	public static void uploadFromFile(InputStream inputSteam,String type){
 		List<String> lines= null; 
 		File file = convertToFile(inputSteam);
@@ -158,7 +161,7 @@ public class DataUpload {
 		}
 		
 	}
-
+	// this is for adding a line of string to compart table
 	public static void addToComPart(String line){
 		String[] record = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 		Connection con = null;
@@ -202,6 +205,7 @@ public class DataUpload {
 	          Database.close(con);
 	    }
 	}
+	//this method adds a record of user to the table.
 	public static void addToUser(String line){
 		String[] record = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 		Connection con = null;

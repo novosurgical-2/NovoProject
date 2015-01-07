@@ -13,7 +13,10 @@ import misc.DataUpload;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
-
+/*
+ * ManageTables: this class take care of the admin page. it upload parts from file
+ * this class makes use of DataUpload class.
+ */
 @ManagedBean
 @ViewScoped
 public class ManageTables {
@@ -42,7 +45,7 @@ public UploadedFile getFile() {
    public void setFile(UploadedFile file) {
        this.file = file;
    }
-    
+    // this helps uploading the chosen file data.
    public void handleFileUpload(FileUploadEvent event) {
 	   file = event.getFile();
 

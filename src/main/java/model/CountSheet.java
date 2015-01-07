@@ -1,7 +1,12 @@
 package model;
 
 import java.util.ArrayList;
-
+/*
+ * this object is not used in the project. it was supposed to define a count
+sheet object. 
+it includes an inner class called CSItem to keep each item. it has a quantity field that shows the # of that item
+an arraylist of CSItem keeps a bunch of items in a sheet
+ */
 public class CountSheet {
 	ArrayList<CSItem> items;
 	User owner;// institution, 

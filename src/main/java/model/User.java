@@ -1,12 +1,17 @@
 package model;
 
+/*
+ * this object defines a user. the KEY for each user is the email address (in
+sql table). also it is the username on the login section. this class has getters and
+setters for the variables.
+ */
 public class User {
     private String email,lastName,firstName,address, city, institution, title, gpo, department, orgType, password;
 	private long phone;
 	private boolean isSubscriber;
 	private int priceTier;
 	
-
+// getters and setter of object
 	public int getPriceTier() {
 		return priceTier;
 	}

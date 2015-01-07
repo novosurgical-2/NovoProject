@@ -13,6 +13,18 @@ import org.primefaces.event.SelectEvent;
 
 import dao.PartDAO;
 
+/*
+ * SearchBean: there are different fields on this class:
+		○ partList: the first list that has results
+		○ finalList: this is the final results
+		○ selectedPart: the item which is clicked on by user
+		○ relatedPart: the parts with the same group id
+		○ search: this method calls the partDAO.search
+		○ select: this method will add the selected part to the final list which is going to be shown on the next page. 
+		after that it open the next page (partDetails.xhtml) with the part information
+		○ selectRelated: this method redirects the user to relatedPart.xhtml page.
+		the relatedPart.xhtml page show the data on the relatedPart object.
+ */
 @ManagedBean(name = "searchBean")
 @SessionScoped
 public class SearchBean {

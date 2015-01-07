@@ -11,6 +11,12 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmailUsingGMailSMTP {
+	/*this method takes the following input arguments and sends the email to an address
+	 * String to: email address of receiver
+	 * String subject: email subject
+	 * String body: email body
+	 * 
+	 */
    public static void sendEmail(String to, String subject, String body) {
        
 

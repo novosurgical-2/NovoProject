@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
 @WebFilter(filterName = "AuthFilter", urlPatterns = {"*.xhtml"})
+/*
+ * if the user has a cookie, this lets them access
+pages more than just the ones in the /public/ directory. 
+if not, the user can only access /public/ directory pages
+ */
 public class AuthFilter implements Filter {
      
     public AuthFilter() {

@@ -38,6 +38,11 @@ public class SignUpBean {
 
     	private String emailReceiver="iman.sadooghi@gmail.com";
 
+    	/*
+    	 *  takes the information filled on the admin.xhtml page and 
+    	 *  adds the new record to the user table. 
+    	 *  this method is not used in signup.xhtml.
+    	 */
     	public void addUser(ActionEvent actionEvent) {
     		Connection con = null;
             PreparedStatement ps = null;
@@ -108,6 +113,12 @@ public class SignUpBean {
     	          Database.close(con);
     	    }
     	}
+    	/*
+    	 *  takes the information filled on the signup.xhtml page and performs the following
+    	 *   1. send to devteamnovo@gmail.com
+    	 *   2. saves user info as a signup form in signup-forms/ directory. please make sure you have this directory.
+    	 *  this method is not used in signup.xhtml.
+    	 */
         public void saveName(ActionEvent actionEvent) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + user.getFirstName()+" !"));
                 try {
@@ -116,7 +127,7 @@ public class SignUpBean {
         			String content = user.getEmail()+", "+user.getLastName()+", "+user.getFirstName()+
         					", "+user.getAddress()+", "+user.getInstitution()+", "+user.getDepartment()+"\n";
          
-        			File file = new File("/home/iman/workspace/signup-forms/"+user.getEmail());
+        			File file = new File("./signup-forms/"+user.getEmail());
          
         			// if file doesnt exists, then create it
         			if (!file.exists()) {

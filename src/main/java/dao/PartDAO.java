@@ -16,7 +16,9 @@ import org.apache.solr.common.SolrDocumentList;
 
 import model.Part;
 
-  
+  /*
+   * PartDAO: this class uses database.java to access different parts on the table.
+   */
 public class PartDAO {    
 //		public static Part[] search(String input){
 //			Part[] parts = new Part[10];
@@ -34,6 +36,15 @@ public class PartDAO {
 //			return parts;
 //			
 //		}
+	/*
+	 * using the string of the user input this method first tries to do a query on:
+
+		■ search on the comPart, if not on comPart
+		■ search on localPart, if not on localPart
+		■ search on solr
+
+	the method returns an arraylist of part objects : ArrayList<Part> which is used in web pages
+	 */
      public static ArrayList<Part> search(String query) {
     	 ArrayList<Part> resultParts = new ArrayList<Part>();
      	 String[] splitQuery = query.replaceAll(" . | .$|^. ", " ").trim().split(" +");
@@ -47,7 +58,7 @@ public class PartDAO {
      		 if (query.contains(" ")) 
  				query = splitQuery[0];
  			
-     	   		// run query on comPart.pcode  
+     	   		// run query on comPart.pcode (first condition)
       		try {
 
   	            con = Database.getConnection();
@@ -91,7 +102,7 @@ public class PartDAO {
  	                resultParts.add(thisPart);
  	                System.out.println("added from db comPart Table");
  	                return resultParts; // this array should only have 1 part object in it
- 				} else { //compart didnt return anything. look in localPart pcodes
+ 				} else { //compart didnt return anything. look in localPart pcodes, (second condition)
  					ps = con.prepareStatement("select localPart.* from localPart where " +
 		 	            		"pCode=? OR stPCode=?");
 			            ps.setString(1, query);
@@ -132,7 +143,7 @@ public class PartDAO {
 			                System.out.println("added from db localPart Table");
 			                return resultParts; // this array should only have 1 part object in it
 			            } else {      
-					// compart didnt return anything. therefore call Solr
+					// compart didnt return anything. therefore call Solr (third condition)
 					System.out.println("searching in solr");
 					return searchSolr(query);
 			            }
@@ -151,6 +162,10 @@ public class PartDAO {
         
     	 return null;
     }
+     /*
+      * using the string of the user input, this class acesses 
+      * the solr server and gets a list of objects from the solr
+      */
      private static ArrayList<Part> searchSolr(String userQuery){
          Part thisPart; 
          ArrayList<Part> resultParts = new ArrayList();
@@ -220,7 +235,11 @@ public class PartDAO {
 		  }
 		  return resultParts;
      }
-     
+     /*
+      * the input of this method is pCode and groupId.
+      *  this can return a list of parts that are in the same group
+					■ the information will be fetched from the mysql table
+      */
      public static ArrayList<Part> selectPart(String pCode, String groupId) { // some fields maybe missing
     	 // if exact item, add to index 0 , else just add anywhere
     	 ArrayList<Part> parts = new ArrayList();

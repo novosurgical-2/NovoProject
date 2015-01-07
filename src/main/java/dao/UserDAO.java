@@ -3,12 +3,16 @@ import java.sql.*;
 
 import model.User;
   
-public class UserDAO {      
+public class UserDAO {    
+	/*
+	 * login: it gets the userid and the password and checks it with the user table in mysql.
+	 */
      public static boolean login(String email, String password) {
         Connection con = null;
         PreparedStatement ps = null;
         try {
             con = Database.getConnection();
+            //simple statement with email && password from table user
             ps = con.prepareStatement(
                     "select email, password from user where email= ? and password= ? ");
             ps.setString(1, email);
@@ -30,6 +34,13 @@ public class UserDAO {
             Database.close(con);
         }
     }
+     /*
+      * getUser: this is a utility method that gets a certain user object from the
+
+user table. the input is the string of email address and the output is a User object.
+      input argument: email of the user
+      output: the User object which has all of user's data
+      */
      public static User  getUser(String email) {
          Connection con = null;
          PreparedStatement ps = null;

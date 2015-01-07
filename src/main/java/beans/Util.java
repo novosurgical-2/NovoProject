@@ -4,7 +4,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
  
- 
+// this is a utility class for: getting the current session and getting the username from that session.
 public class Util {
  
       public static HttpSession getSession() {

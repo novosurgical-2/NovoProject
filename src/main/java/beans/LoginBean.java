@@ -48,7 +48,15 @@ public class LoginBean implements Serializable {
         this.password = password;
     }
 
- 
+ /*
+  * this is the method that gets the username and password, and
+
+then calls the login method from userDAO. if the username starts with the
+
+name “admin”, it redirects the user to admin page, otherwise it goes to the
+
+search page.
+  * */
     public String loginProject() {
         boolean result = UserDAO.login(email, password);
         if (result) {

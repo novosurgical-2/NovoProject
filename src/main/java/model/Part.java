@@ -9,7 +9,10 @@ import java.nio.file.Files;
 
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-
+/*
+ * this defines the local or competitor parts. pCode is the key in the sql table.
+this class has getters and setters for the variables.
+ */
 public class Part {
 	
 	String pCode,stPCode,name ,description,groupId,imagePath,
